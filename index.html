@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yuxiang Lin</title>
+<meta name="description" content="Yuxiang Lin's personal website" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <aside class="sidebar">
+            <button class="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">☰ Menu</button>
+            <nav id="sidebar" aria-label="Section navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main id="content">
+        <header class="hero" id="about">
+            <div class="hero-card">
+                <div class="hero-top">
+                    <div class="hero-photo" aria-hidden="true">
+                        <img src="assets/profile.jpg" alt="Yuxiang Lin profile" class="profile" />
+                    </div>
+
+                    <div class="name-block">
+                        <h1 class="name-zh">林宇翔</h1>
+                        <div class="name-en">Yuxiang Lin (Lín, Yǔ Xiáng)</div>
+                    </div>
+                </div>
+
+                <div class="hero-content">
+                    <p>
+                        I am a Class of 2026 undergraduate student at 
+                        <a href="https://dukekunshan.edu.cn/" target="_blank" rel="noopener noreferrer">Duke Kunshan University (DKU)</a>, 
+                        which also grants me a
+                        <a href="https://duke.edu/" target="_blank" rel="noopener noreferrer">Duke University</a>
+                        degree upon graduation. 
+                        I major in
+                        <a href="https://ugstudies.dukekunshan.edu.cn/majors/applied-mathematics-and-computational-sciences-with-tracks-in-computer-science-and-mathematics/" target="_blank" rel="noopener noreferrer">Applied Mathematics and Computational Sciences with a track in Computer Science</a>.
+                    </p>
+
+                    <p>
+                        I am interested in the intersection of computer science and discrete mathematics, specifically:
+                    </p>
+
+                    <ul>
+                    <li>
+                        <strong>Combinatorial and graph algorithms:</strong> 
+                        I became interested in them during algorithmic programming contests such as 
+                        <a href="https://codeforces.com/blog/entry/131266" target="_blank" rel="noopener noreferrer">NOIP</a>
+                        and 
+                        <a href="https://icpc.global/" target="_blank" rel="noopener noreferrer">ICPC</a>, 
+                        which I have participated in since middle school. 
+                        I have also worked on combinatorial structures such as
+                        <a href="https://en.wikipedia.org/wiki/Matroid" target="_blank" rel="noopener noreferrer"><em>matroids</em></a> and the 
+                        <a href="https://en.wikipedia.org/wiki/Sunflower_(mathematics)" target="_blank" rel="noopener noreferrer"><em>sunflower lemma</em></a> 
+                        in my undergraduate research.
+                    </li>
+                    <li>
+                        <strong>Program analysis and verification:</strong> 
+                        I enjoy applying formal methods to reason about program behavior and verify rigorous semantic properties. 
+                        Currently, I am using 
+                        <a href="https://klee-se.org/" target="_blank" rel="noopener noreferrer"><em>KLEE</em></a>, 
+                        a symbolic execution engine, to study hyperproperties in code, especially relational properties involving input-dependent behavior across multiple executions.
+                    </li>
+                    </ul>
+
+                    <p>
+                        I also have extensive experience with retrieval and reasoning systems, both in research and in production, including work with open-source language models and evaluation pipelines. 
+                        Nevertheless, I still prefer the "hand-crafted" side of computer science&mdash;algorithms and systems built through logic and structure rather than statistical learning.
+                    </p>
+
+                    <p>
+                        Outside of academics, I enjoy the freedom of traveling on two wheels. 
+                        My greatest adventure so far has been a two-week, 2,000-mile solo motorcycle trip through the Blue Ridge Parkway and three national parks. 
+                        I am also a metalhead and still learning to play the guitar.
+                    </p>
+
+                    <p class="contact" style="margin-top:10px;">
+                        Email: <a href="mailto:yl925@duke.edu" target="_blank" rel="noopener noreferrer">yl925@duke.edu</a>
+                        Github: <a href="https://github.com/theta-lin" target="_blank" rel="noopener noreferrer">theta-lin</a>
+                        CV: <a href="assets/Yuxiang_Lin_CV.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a>
+                        LinkedIn (less updated): <a href="https://www.linkedin.com/in/yuxiang-lin/" target="_blank" rel="noopener noreferrer">yuxiang-lin</a>
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <section id="research" aria-labelledby="research">
+            <h2 id="research-title">Research</h2>
+
+            <div class="item">
+                <div>
+                    <strong>Program Analysis for Hyperproperty Verification</strong> &mdash;
+                    <a href="https://users.cs.duke.edu/~dz132/" target="_blank" rel="noopener noreferrer">Prof. Danfeng Zhang</a>
+                    (Duke CS+ Summer Program)
+                </div>
+                <div class="meta">Durham, U.S. &middot; May 2025 &ndash; <strong>Present</strong></div>
+                <p>
+                    Many important program guarantees are <em>hyperproperties</em>, meaning they relate multiple executions rather than a single run in isolation. 
+                    Our work focuses on software verification and reliability analysis for <em>input-dependent performance variations</em> in LLVM bitcode&mdash;cases where changing an input can alter which paths a program takes or which memory locations it touches across paired executions.
+                </p>
+
+                <p>
+                    Prior work such as 
+                    <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ECOOP.2024.46" target="_blank" rel="noopener noreferrer"><em>CtChecker</em></a> 
+                    studies constant-time behavior using static taint analysis. 
+                    We aim to overcome the limitations of purely static approaches by leveraging <em>symbolic execution</em>. 
+                    Unlike static analysis, symbolic execution can produce <strong>concrete paired inputs</strong> that witness a failure of the target relational property, and it is generally <strong>sound</strong> (i.e., it reports only true positives, aside from implementation constraints).
+                </p>
+
+                <p>
+                    We are extending 
+                    <a href="https://klee-se.org/" target="_blank" rel="noopener noreferrer"><em>KLEE</em></a>, a symbolic execution engine, 
+                    to automatically reason about relational properties induced by input-dependent control flow and data-dependent memory access. 
+                    Our modifications introduce <em>product-program construction</em> directly into <em>KLEE</em>'s source code. 
+                    In addition, we have developed automated benchmarking tools for software verification to validate reported counterexamples at the binary level, compare them with results from <em>CtChecker</em>, and visualize the findings.
+                </p>
+
+
+                <figure class="figure">
+                    <img src="assets/analysis/slide-product-programs.png" alt="Product programs" style="width:50%;" />
+                    <figcaption>The product program construction for input-dependent control-flow.</figcaption>
+                </figure>
+            </div>
+
+            <div class="item">
+                <div><strong>Matroids and Sunflower Lemma</strong> &mdash; Prof. Italo Simonelli (Undergraduate Signature Work)</div>
+                <div class="meta">Kunshan, China &middot; Jan 2024 &ndash; <strong>Present</strong></div>
+                <p>
+                    A <a href="https://en.wikipedia.org/wiki/Matroid" target="_blank" rel="noopener noreferrer"><em>matroid</em></a>
+                    is a combinatorial structure that generalizes the concept of linear independence. 
+                    It consists of a <em>ground set</em> <em>E</em> and a collection <em>I</em> of subsets of <em>E</em>, called <em>independent sets</em>, that satisfy three axioms. I am proposing a new combinatorial structure called a <em>weak matroid</em>, which relaxes these axioms. 
+                </p>
+
+                <p>
+                    Analogous to how <em>graphic matroids</em> arise from undirected graphs, I have defined <em>graphic weak matroids</em> using directed graphs. I am currently studying the properties of these graphic weak matroids, utilizing C++ and the 
+                    <a href="https://www.boost.org/doc/libs/latest/libs/graph/doc/index.html" target="_blank" rel="noopener noreferrer">Boost Graph Library</a>
+                    for enumeration and experimentation.
+                </p>
+
+                <p>
+                    A <a href="https://en.wikipedia.org/wiki/Sunflower_(mathematics)" target="_blank" rel="noopener noreferrer"><em>sunflower</em></a> 
+                    is a family of sets in which all pairwise intersections of the sets are the same, and that intersection is called the <em>core</em>. 
+                    The parts of each set outside the core are called <em>petals</em>. 
+                    The <em>sunflower lemma</em> states that any sufficiently large family of fixed-size sets necessarily contains a sunflower. 
+                    I am currently exploring a variant of the sunflower lemma that connects to the structure of weak matroids.
+                </p>
+
+                <figure class="figure figure-horizontal">
+                    <img src="assets/matroids/sunflower.svg" alt="Sunflower" style="width:25%; background:#ffffff;" />
+                    <figcaption> A sunflower with three petals. </figcaption>
+                </figure>
+            </div>
+
+            <div class="item">
+                <div>
+                    <strong>ChatDKU</strong> &mdash;
+                    <a href="https://sites.duke.edu/edgeintelligence/" target="_blank" rel="noopener noreferrer">DKU Edge Intelligence Lab</a>
+                    (<a href="https://luobing1008.github.io/" target="_blank" rel="noopener noreferrer">Prof. Bing Luo</a>
+                    , DKU Summer Research Scholars)
+                </div>
+                <div class="meta">May 2024 &mdash; Jan 2025</div>
+                <p>
+                    As a university, DKU has a vast amount of institutional knowledge, but it's often siloed in different websites and documents. We created <strong>ChatDKU</strong> as a centralized information access system for the DKU community. The entire system is deployed locally on DKU's own servers, using a backend stack built with
+                    <a href="https://docs.vllm.ai/" target="_blank" rel="noopener noreferrer">vLLM</a> and
+                    <a href="https://docs.sglang.ai/" target="_blank" rel="noopener noreferrer">SGLang</a> for serving open-source language models,
+                    <a href="https://github.com/huggingface/text-embeddings-inference/" target="_blank" rel="noopener noreferrer">Text Embeddings Inference</a> for embeddings before vector search,
+                    and <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer">Flask</a> for backend serving.
+                </p>
+
+                <p>
+                    The system combines query planning, search tools, and memory into a retrieval-and-reasoning pipeline. We built this architecture using <a href="https://dspy.ai/" target="_blank" rel="noopener noreferrer">DSPy</a>, which acts as a lightweight framework for composing these modules. DSPy's most useful feature for us was automated prompt optimization, which allowed us to tune the intermediate reasoning steps. We also utilized 
+                    <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener noreferrer">LlamaIndex</a>
+                    for unified data ingestion and querying.
+                </p>
+
+                <p>
+                    This project taught me a critical lesson about engineering in the real world: frameworks like DSPy and LlamaIndex are fantastic for rapid prototyping, but their abstractions become a major bottleneck in production. They make it difficult to access and tune the underlying model inputs and system instructions, yet <strong>direct control over these components is one of the most effective ways to improve performance.</strong>
+                </p>
+
+                <p>
+                    I had to go "under the hood" to solve this. My contributions focused on moving beyond the limitations of these frameworks:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Observability:</strong> I manually integrated
+                        <a href="https://phoenix.arize.com/" target="_blank" rel="noopener noreferrer">Arize Phoenix</a>
+                        with our custom pipeline to visualize the actual model inputs and intermediate traces.
+                    </li>
+                    <li>
+                        <strong>Direct System Control:</strong> After identifying poorly performing components, I modified DSPy's underlying code to directly inject our own optimized instructions and templates.
+                    </li>
+                    <li>
+                        <strong>Upstream Contributions:</strong> I debugged several issues we hit during development and contributed our fixes back to the open-source LlamaIndex and DSPy repositories.
+                    </li>
+                </ul>
+
+                <p>
+                    This experience highlighted another key takeaway: while there are many working "toy examples" online, using frameworks like DSPy or LlamaIndex in production reveals a significant number of bugs and stability issues. Also, we found LlamaIndex's retriever modules in particular were too abstract and hard to control. I have replaced that part of the stack entirely by implementing a unified search service using <a href="https://redis.io/" target="_blank" rel="noopener noreferrer">Redis</a>, which combines vector search and keyword search. Finally, I used <a href="https://k6.io/" target="_blank" rel="noopener noreferrer">k6</a> for load testing the entire stack to ensure it could handle large-scale use by the community.
+                </p>
+
+                <p>
+                    Additionally, I found it interesting that there is no asynchronous recursive website scrapers supporting features such as black/white list and SAML login (at least not at the time I worked on ChatDKU). Therefore, I also implemented a simple scraper with these features in Python with
+                    <a href="https://docs.aiohttp.org/" target="_blank" rel="noopener noreferrer">AIOHTTP</a>.
+                </p>
+
+                <p>
+                    <a href="https://chatdku.dukekunshan.edu.cn/" target="_blank" rel="noopener noreferrer">
+                        <em>ChatDKU system (DKU internal network only)</em>
+                    </a>
+                </p>
+
+                <figure class="figure figure-horizontal">
+                    <img src="assets/chatdku/chatdku-1.png" alt="ChatDKU screenshot 1" style="width:30%;" />
+                    <img src="assets/chatdku/chatdku-2.png" alt="ChatDKU screenshot 2" style="width:30%;" />
+                    <iframe src="https://www.youtube.com/embed/Os1Xb_CidMY" title="ChatDKU - a RAG-agent AI chatbot for Duke Kunshan University (DKU)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:30%;"></iframe>
+                    <figcaption>Left and middle: ChatDKU interface. Right: ChatDKU launch video.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="publications" aria-labelledby="pubs-title">
+            <h2 id="pubs-title">Publications</h2>
+            <div class="item">
+                <div><strong>Do LLM Agents Know How to Ground, Recover, and Assess? A Benchmark for Epistemic Competence in Information-Seeking Agents</strong></div>
+                <div class="meta">
+                    <a href="https://jiaqi-shao-academic-page.vercel.app/" target="_blank" rel="noopener noreferrer">J. Shao</a>,
+                    <strong>Y. Lin</strong>,
+                    <a href="https://github.com/munishlohani" target="_blank" rel="noopener noreferrer">M. P. Lohani</a>,
+                    Y. Miao,
+                    <a href="https://luobing1008.github.io/" target="_blank" rel="noopener noreferrer">B. Luo</a>.
+                    arXiv e-prints, <a href="https://arxiv.org/abs/2509.22391">arXiv:2509.22391</a>, 2025.
+                </div>
+                <p>
+                    Most benchmarks for LLM-based information-seeking systems only grade the final answer, which hides major flaws in reasoning. We developed <strong>SeekBench</strong>, a process-level benchmark and dataset for evaluating epistemic competence in open-source model-based search and reasoning pipelines.
+                </p>
+                <p>
+                    Our contributions were:
+                </p>
+                <ul>
+                    <li>
+                        <strong>A Process-Level Benchmark:</strong> We created a structured trace schema to evaluate the <em>entire</em> reasoning process (reasoning, search, evidence), enabling scalable, step-by-step evaluation.
+                    </li>
+                    <li>
+                        <strong>A New Metrics Framework:</strong> We defined and formalized three core competencies: <strong>Groundedness</strong> (is reasoning based on facts?), <strong>Recovery</strong> (does it adapt to bad search results?), and <strong>Calibration</strong> (does it know when to stop?).
+                    </li>
+                    <li>
+                        <strong>Large-Scale Findings:</strong> Our evaluation (over 28,000 traces) revealed that standard accuracy metrics are misleading. We found that RL-trained agents excel at gathering evidence but struggle with reasoning, and that a striking <strong>72.7% of reasoning steps weren't grounded</strong> in any evidence at all.
+                    </li>
+                </ul>
+
+                <figure class="figure">
+                    <img src="assets/seekbench/dataset_overview.png" alt="SeekBench dataset overview diagram" style="width:50%;" />
+                    <figcaption>Figure 1 in paper: Overview of the SeekBench dataset and annotation schema.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title">Projects</h2>
+
+            <div class="note" role="note" aria-label="Projects note">
+                See my <a href="https://github.com/theta-lin" target="_blank" rel="noopener noreferrer">GitHub page</a> for my select course projects.
+            </div>
+
+            <div class="item">
+                <div><strong>Affordable Embroidery Machine</strong></div>
+                <div class="meta">Sep 2023 &mdash; May 2025</div>
+                <p>
+                    Designed an affordable, scalable CNC embroidery machine.
+                    Created CAD models in FreeCAD, 3D-printed the prototype, and used Arduino for motion control.
+                </p>
+            </div>
+
+            <div class="item">
+                <div><strong>FedCampus</strong></div>
+                <div class="meta">Jan 2024 &mdash; Apr 2024</div>
+                <p>
+                    Maintained the Django backend for FedCampus, a federated learning and analytics platform
+                    used by 90 active DKU users.
+                </p>
+            </div>
+        </section>
+
+        <section id="teaching" aria-labelledby="teaching-title">
+            <h2 id="teaching-title">Teaching</h2>
+
+            <div class="item">
+                <div><strong>Teaching Assistant, COMPSCI 201 (Introduction to Programming and Data Structures)</strong></div>
+                <div class="meta">Fall 2023 · Duke Kunshan University</div>
+                <p>
+                    Held weekly office hours and provided in-depth support to 20 students mostly regarding programming in Java and implementation of data structures.
+                </p>
+            </div>
+
+            <div class="item">
+                <div><strong>Peer Tutor, STATS 102 (Introduction to Data Science)</strong></div>
+                <div class="meta">2023 &mdash; 2024 · Duke Kunshan University</div>
+                <p>
+                    Trained in Tutor Essentials (CRLA-aligned) and conducted bi-weekly sessions covering NumPy, matplotlib, and scikit-learn.
+                </p>
+            </div>
+        </section>
+
+        <section id="awards" aria-labelledby="awards-title">
+            <h2 id="awards-title">Awards</h2>
+            <ul class="list">
+                <li>Silver Medal &mdash; ICPC Asia Xi'an Regional (2023)</li>
+                <li>Gold Medal &mdash; ICPC Asia Hefei Regional (2022)</li>
+                <li>Bronze Medal &mdash; ICPC Asia-East Continent Final (2022)</li>
+                <li>DKU Student Leader of the Year Award &mdash; (2023)</li>
+                <li>National Encouragement Scholarship &mdash; (2023)</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+        <script>
+            (() => {
+                const toggle = document.querySelector('.sidebar-toggle');
+                const mq = window.matchMedia('(max-width: 700px)');
+                if (!toggle) return;
+
+                const setExpanded = (state) => toggle.setAttribute('aria-expanded', state ? 'true' : 'false');
+                const setButtonState = (expanded) => {
+                    setExpanded(expanded);
+                    toggle.textContent = expanded ? '✕ Close' : '☰ Menu';
+                    toggle.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
+                };
+
+                const syncToViewport = () => {
+                    if (!mq.matches) {
+                        toggle.hidden = true;
+                        document.body.classList.remove('sidebar-visible');
+                        setButtonState(true);
+                        return;
+                    }
+
+                    toggle.hidden = false;
+                    document.body.classList.remove('sidebar-visible');
+                    setButtonState(false);
+                };
+
+                toggle.addEventListener('click', () => {
+                    if (!mq.matches) return;
+                    const open = document.body.classList.toggle('sidebar-visible');
+                    setButtonState(open);
+                });
+
+                mq.addEventListener('change', syncToViewport);
+                syncToViewport();
+            })();
+        </script>
+</body>
+
+</html>
